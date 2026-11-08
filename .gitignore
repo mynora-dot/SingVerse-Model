@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+/dist/
+/.release-*/
+/.fetch-*/
+/models/**/.fetch-*/
+# Upstream weights are fetched by exact size/SHA-256, not stored in Git history.
+/models/**/*.th
+/models/**/*.pth
+/models/**/*.onnx
+/models/**/*.xml
+/models/**/*.bin
+# The two board-verified .rknn files and their manifests are deliberately tracked.

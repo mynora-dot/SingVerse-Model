@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.rknn binary
+*.onnx binary
+*.th binary
+*.pth binary
+*.bin binary
+*.zip binary

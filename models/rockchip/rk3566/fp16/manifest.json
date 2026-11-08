@@ -1,0 +1,8 @@
+{
+  "profile": "uvr-mdxnet-9482-v1",
+  "target": "rk3566",
+  "size": 20046968,
+  "sha256": "b67e7334e43f4b294838ee65b4af05c15cdb0d84209e804f79d65a92ac509180",
+  "toolkit": "2.3.2",
+  "sourceSha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d"
+}

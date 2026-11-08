@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "repository": "mynora-dot/SingVerse-Model",
+  "uvrSourceSha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d",
+  "models": [
+    {
+      "id": "htdemucs",
+      "runtimeModelId": "htdemucs",
+      "directory": "models/shared/htdemucs",
+      "format": "pytorch",
+      "precision": "upstream-pytorch",
+      "channel": "stable",
+      "description": "CPU / NVIDIA CUDA / AMD ROCm / Apple MPS 伴奏分离",
+      "license": "MIT",
+      "backends": [
+        "cpu",
+        "cuda",
+        "rocm",
+        "mps"
+      ],
+      "files": [
+        {
+          "name": "955717e8-8726e21a.th",
+          "size": 84141911,
+          "sha256": "8726e21a993978c7ba086d3872e7608d7d5bfca646ca4aca459ffda844faa8b4",
+          "url": "https://dl.fbaipublicfiles.com/demucs/hybrid_transformer/955717e8-8726e21a.th"
+        },
+        {
+          "name": "htdemucs.yaml",
+          "size": 21,
+          "sha256": "239c445d0b14454d541ad8bd9bb271c9e536d267e8a4625208744cbb2e7bb66c"
+        }
+      ],
+      "artifact": {
+        "name": "955717e8-8726e21a.th",
+        "kind": "raw",
+        "members": [
+          "955717e8-8726e21a.th"
+        ],
+        "install": "admin-raw"
+      },
+      "validation": {
+        "summary": "固定上游权重；设备运行环境仍需试跑"
+      },
+      "sampleRate": 44100,
+      "stems": [
+        "drums",
+        "bass",
+        "other",
+        "vocals"
+      ],
+      "upstream": {
+        "project": "https://github.com/facebookresearch/demucs",
+        "revision": "955717e8",
+        "licenseRevision": "e976d93ecc3865e5757426930257e200846a520a"
+      }
+    },
+    {
+      "id": "htdemucs-openvino",
+      "runtimeModelId": "htdemucs-openvino",
+      "directory": "models/intel/openvino/htdemucs",
+      "format": "openvino-ir",
+      "precision": "upstream-ir",
+      "channel": "stable",
+      "description": "Intel GPU OpenVINO 伴奏分离",
+      "license": "MIT",
+      "backends": [
+        "openvino"
+      ],
+      "files": [
+        {
+          "name": "htdemucs_fwd.xml",
+          "size": 1477599,
+          "sha256": "1557f96f11cf1667beca60679926bf43b393d3ff71eb4b9a625c6a07bc23f4a4",
+          "url": "https://huggingface.co/Intel/demucs-openvino/resolve/efb3d2bc54f93899b13b72b12c57001e19f09ae2/htdemucs_v4/htdemucs_fwd.xml"
+        },
+        {
+          "name": "htdemucs_fwd.bin",
+          "size": 104552746,
+          "sha256": "74c4e1ebd68b648ea5a2aabefb65d5c3ba805658037fc97a37b84ce9c72f4eb1",
+          "url": "https://huggingface.co/Intel/demucs-openvino/resolve/efb3d2bc54f93899b13b72b12c57001e19f09ae2/htdemucs_v4/htdemucs_fwd.bin"
+        }
+      ],
+      "artifact": {
+        "name": "htdemucs-openvino.zip",
+        "kind": "zip",
+        "members": [
+          "htdemucs_fwd.xml",
+          "htdemucs_fwd.bin"
+        ],
+        "install": "admin-zip"
+      },
+      "validation": {
+        "summary": "Intel 固定修订 IR；GPU 资格需在设备试跑"
+      },
+      "sampleRate": 44100,
+      "stems": [
+        "drums",
+        "bass",
+        "other",
+        "vocals"
+      ],
+      "upstream": {
+        "project": "https://huggingface.co/Intel/demucs-openvino",
+        "revision": "efb3d2bc54f93899b13b72b12c57001e19f09ae2"
+      }
+    },
+    {
+      "id": "panns-cnn6",
+      "runtimeModelId": "panns-cnn6",
+      "directory": "models/shared/panns-cnn6",
+      "format": "pytorch",
+      "precision": "upstream-pytorch",
+      "channel": "stable",
+      "description": "可选快速音频角色识别，不生成人声 / 伴奏",
+      "license": "CC-BY-4.0",
+      "backends": [
+        "cpu"
+      ],
+      "files": [
+        {
+          "name": "Cnn6_mAP=0.343.pth",
+          "size": 23698321,
+          "sha256": "8a17541944f2623a2a0164e072ac2f915dcedca99968083cc44bfbc7eb682275",
+          "url": "https://zenodo.org/records/3987831/files/Cnn6_mAP%3D0.343.pth?download=1"
+        }
+      ],
+      "artifact": {
+        "name": "panns-cnn6.zip",
+        "kind": "zip",
+        "members": [
+          "Cnn6_mAP=0.343.pth"
+        ],
+        "install": "admin-zip"
+      },
+      "validation": {
+        "summary": "固定上游 Cnn6 权重"
+      },
+      "sampleRate": 32000,
+      "purpose": "fast-audio-roles",
+      "attribution": "Qiuqiang Kong, Yin Cao, Turab Iqbal, Yuxuan Wang, Wenwu Wang, Mark D. Plumbley. PANNs: Large-Scale Pretrained Audio Neural Networks for Audio Pattern Recognition. Zenodo 3987831, DOI: 10.5281/zenodo.3987831.",
+      "upstream": {
+        "project": "https://zenodo.org/records/3987831",
+        "revision": "3987831"
+      }
+    },
+    {
+      "id": "uvr-mdxnet-9482-onnx",
+      "runtimeModelId": null,
+      "directory": "models/portable/uvr-mdxnet-9482",
+      "format": "onnx",
+      "precision": "fp32",
+      "channel": "stable",
+      "description": "UVR 独立 ONNX CPU 对照与 RKNN 转换源",
+      "license": "MIT (UVR upstream attribution)",
+      "backends": [
+        "onnxruntime-cpu"
+      ],
+      "files": [
+        {
+          "name": "UVR_MDXNET_9482.onnx",
+          "size": 29704738,
+          "sha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d",
+          "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/source-separation-models/UVR_MDXNET_9482.onnx"
+        }
+      ],
+      "artifact": {
+        "name": "UVR_MDXNET_9482.onnx",
+        "kind": "raw",
+        "members": [
+          "UVR_MDXNET_9482.onnx"
+        ],
+        "install": "cli-only"
+      },
+      "validation": {
+        "summary": "RK3566 独立 CLI 对照通过；不接入管理端自动选择"
+      },
+      "sampleRate": 44100,
+      "stems": [
+        "vocals",
+        "no_vocals"
+      ],
+      "upstream": {
+        "project": "https://github.com/k2-fsa/sherpa-onnx/releases/tag/source-separation-models",
+        "original": "https://github.com/TRvlvr/model_repo/releases/tag/all_public_uvr_models",
+        "conversionCodeRevision": "347ec768a01ca53e766780f7759b14e145b643e6"
+      }
+    },
+    {
+      "id": "uvr-mdxnet-9482-rk3566-fp16",
+      "runtimeModelId": "uvr-mdxnet-9482-rknn",
+      "directory": "models/rockchip/rk3566/fp16",
+      "format": "rknn",
+      "precision": "fp16",
+      "channel": "experimental",
+      "description": "RK3566 NPU FP16 伴奏分离",
+      "license": "MIT (UVR upstream attribution)",
+      "backends": [
+        "rknn"
+      ],
+      "files": [
+        {
+          "name": "uvr.rknn",
+          "size": 20046968,
+          "sha256": "b67e7334e43f4b294838ee65b4af05c15cdb0d84209e804f79d65a92ac509180"
+        },
+        {
+          "name": "manifest.json",
+          "size": 268,
+          "sha256": "35efd1f80e29d12de200262b2da11aae8b17f760e2e9056b9f5879b59df464f9"
+        }
+      ],
+      "artifact": {
+        "name": "EXPERIMENTAL-uvr-mdxnet-9482-rk3566-fp16.zip",
+        "kind": "zip",
+        "members": [
+          "uvr.rknn",
+          "manifest.json"
+        ],
+        "install": "local-only"
+      },
+      "validation": {
+        "summary": "RK3566 隔离 CLI 全曲通过；正式服务接入未完成",
+        "scope": "isolated-cli",
+        "audioSeconds": 112.066667,
+        "elapsedSeconds": 662.046,
+        "peakRssMiB": 706.14,
+        "referenceBlockSeconds": 5.828209,
+        "vocalsRelativeRmsPercent": 0.0982,
+        "accompanimentRelativeRmsPercent": 0.1246,
+        "managedServiceReady": false
+      },
+      "target": "rk3566",
+      "sampleRate": 44100,
+      "stems": [
+        "vocals",
+        "no_vocals"
+      ],
+      "toolkit": "2.3.2",
+      "sourceSha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d",
+      "validationRecord": "docs/validation-rk3566-2026-11-08.md",
+      "numericalReferenceCheckPassed": true
+    },
+    {
+      "id": "uvr-mdxnet-9482-rk3566-int8",
+      "runtimeModelId": "uvr-mdxnet-9482-rknn",
+      "directory": "models/experimental/rockchip/rk3566/int8",
+      "format": "rknn",
+      "precision": "int8",
+      "channel": "experimental",
+      "description": "RK3566 NPU INT8 伴奏分离",
+      "license": "MIT (UVR upstream attribution)",
+      "backends": [
+        "rknn"
+      ],
+      "files": [
+        {
+          "name": "uvr.rknn",
+          "size": 9683090,
+          "sha256": "ff6d560ec05c2fd66cfc936465e5ccc74bf09e368c01708cab509cb274dd55f3"
+        },
+        {
+          "name": "manifest.json",
+          "size": 524,
+          "sha256": "6583aa44f1bcae218845ecc9e909a53b09f5b5ed9d65c7b8e0907967ccc930c3"
+        }
+      ],
+      "artifact": {
+        "name": "EXPERIMENTAL-uvr-mdxnet-9482-rk3566-int8.zip",
+        "kind": "zip",
+        "members": [
+          "uvr.rknn",
+          "manifest.json"
+        ],
+        "install": "local-only"
+      },
+      "validation": {
+        "summary": "音质数值未通过；仅量化研究，不建议使用",
+        "scope": "held-out-8-second-cli",
+        "audioSeconds": 8,
+        "separationSeconds": 49.359788,
+        "peakRssMiB": 433.24,
+        "vocalsRelativeRmsPercent": 33.9452,
+        "accompanimentRelativeRmsPercent": 41.4115,
+        "managedServiceReady": false
+      },
+      "target": "rk3566",
+      "sampleRate": 44100,
+      "stems": [
+        "vocals",
+        "no_vocals"
+      ],
+      "toolkit": "2.3.2",
+      "sourceSha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d",
+      "validationRecord": "docs/validation-rk3566-2026-11-08.md",
+      "numericalReferenceCheckPassed": false
+    }
+  ],
+  "devices": [
+    {
+      "id": "cpu",
+      "label": "通用 x86_64 / ARM64 CPU",
+      "recommendedModel": "htdemucs",
+      "optionalModel": "panns-cnn6",
+      "note": "需足够内存和兼容的 PyTorch 运行环境；小内存 NAS 不保证可用"
+    },
+    {
+      "id": "nvidia-cuda",
+      "label": "NVIDIA CUDA GPU",
+      "recommendedModel": "htdemucs",
+      "optionalModel": "panns-cnn6",
+      "note": "与 CPU 共用权重，按 SingVerse 安装 CUDA 运行环境并试跑"
+    },
+    {
+      "id": "amd-rocm",
+      "label": "AMD ROCm GPU",
+      "recommendedModel": "htdemucs",
+      "optionalModel": "panns-cnn6",
+      "note": "需 SingVerse 支持的 GPU / ROCm 环境并试跑"
+    },
+    {
+      "id": "apple-mps",
+      "label": "Apple Silicon MPS",
+      "recommendedModel": "htdemucs",
+      "optionalModel": "panns-cnn6",
+      "note": "本机计算节点；与 CPU 共用权重"
+    },
+    {
+      "id": "intel-openvino",
+      "label": "Intel GPU OpenVINO",
+      "recommendedModel": "htdemucs-openvino",
+      "optionalModel": "panns-cnn6",
+      "note": "需两份 IR 文件及兼容 OpenVINO GPU 插件"
+    },
+    {
+      "id": "rockchip-rk3566",
+      "label": "Rockchip RK3566 NPU",
+      "experimentalModel": "uvr-mdxnet-9482-rk3566-fp16",
+      "optionalModel": "uvr-mdxnet-9482-onnx",
+      "note": "仅隔离 CLI 验证；INT8 质量不合格，不设为推荐模型"
+    },
+    {
+      "id": "rockchip-rk3568",
+      "label": "Rockchip RK3568 NPU",
+      "status": "requires-conversion-and-board-validation",
+      "note": "需按 rk3568 独立转换并在板端验证，本版不提供已验证 RKNN 文件"
+    },
+    {
+      "id": "rockchip-rk3588",
+      "label": "Rockchip RK3588 NPU",
+      "status": "requires-conversion-and-board-validation",
+      "note": "需按 rk3588 独立转换并在板端验证，本版不提供已验证 RKNN 文件"
+    },
+    {
+      "id": "video-vpu",
+      "label": "VPU / RKMPP / VAAPI / QSV / NVENC 视频编解码",
+      "status": "no-ai-model-required",
+      "note": "依赖驱动、FFmpeg 与设备权限，无需下载 AI 模型"
+    }
+  ],
+  "unsupported": [
+    {
+      "target": "rk3566",
+      "toolkit": "2.3.2",
+      "precision": "int4-w4a16",
+      "status": "unsupported",
+      "artifact": null,
+      "evidence": "The quantized_dtype = 'w4a16' not support in 'rk3566'!"
+    }
+  ]
+}

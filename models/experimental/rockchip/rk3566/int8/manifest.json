@@ -1,0 +1,20 @@
+{
+  "profile": "uvr-mdxnet-9482-v1",
+  "target": "rk3566",
+  "size": 9683090,
+  "sha256": "ff6d560ec05c2fd66cfc936465e5ccc74bf09e368c01708cab509cb274dd55f3",
+  "toolkit": "2.3.2",
+  "sourceSha256": "9d78f8566fa8198065214ab628be1de966a500c57786695aa4b13e2b27a7727d",
+  "experimentalQuantization": {
+    "dtype": "w8a8",
+    "method": "channel",
+    "calibrationSeconds": [
+      20,
+      40,
+      60,
+      80
+    ],
+    "calibrationSong": "user-provided-112-second-audio",
+    "heldOutValidation": "first-8-seconds"
+  }
+}
